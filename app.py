@@ -1,10 +1,12 @@
 from flask import Flask, jsonify
 app = Flask(__name__)
 
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
-    
+
+
 @app.route('/stock/<ticker>')
 def get_stock_data(ticker):
     if ticker == "AAPL":
@@ -18,3 +20,5 @@ def get_stock_data(ticker):
 
     if ticker == "SMCI":
         return jsonify({"name": "Super Micro Computer, Inc.", "last_price": 895.93, "ticker": "SMCI", "market_cap": "46.987B"})
+    if ticker == "NOW":
+        return jsonify({"name": "Service Now Inc", "last_price": 732.66, "ticker": "NOW", "market_cap": "98B"})
